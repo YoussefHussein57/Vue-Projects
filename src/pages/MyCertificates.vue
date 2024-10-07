@@ -1,12 +1,24 @@
 <template>
   <div class="certificates">
     <ul>
-      <base-card v-for="cert in certificates" :key="cert.title" class="certificate-item">
+      <base-card v-for="(cert, index) in certificates" :key="cert.title" class="certificate-item">
         <li>
-          <img :src="cert.image" :alt="cert.cetAlt">
+          <!-- Base Spinner that shows only when the image is loading -->
+          <base-spinner v-if="loading[index]"></base-spinner>
+
+          <!-- Image with load and error events -->
+          <img 
+            :src="cert.image" 
+            :alt="cert.cetAlt" 
+            @load="loading[index] = false" 
+            @error="loading[index] = false"
+            v-show="!loading[index]" 
+          >
           <strong>{{ cert.title }}</strong> 
 
-          <base-button> <a :href="cert.link" target="_blank">View Certificate </a></base-button>
+          <base-button> 
+            <a :href="cert.link" target="_blank">View Certificate</a>
+          </base-button>
           <p>{{ cert.details }}</p>
         </li>
       </base-card>
@@ -15,8 +27,6 @@
 </template>
 
 <script>
-
-
 export default {
   name: 'UserCertificates',
   data() {
@@ -24,7 +34,6 @@ export default {
       certificates: [
         {
           title: 'HTML and CSS',
-         
           link: 'https://drive.google.com/file/d/1P4wYM6p01j_6bRiAeYGLu0NTH3j1D-8Q/view?usp=drive_link',
           details: 'I successfully completed this 7-hour course on May 31, 2022.',
           image: require('../assets/Certi/HTML and CSS.png'),
@@ -32,24 +41,28 @@ export default {
         },
         {
           title: 'JavaScript',
-       
           link: 'https://drive.google.com/file/d/1wage2UYNZxSB4EusAE5OKemooSA0wqax/view?usp=drive_link',
           details: 'I successfully completed this 7-hour course on May 31, 2022.',
           image: require('../assets/Certi/JS.png'),
-          cetAlt: 'Javascript Certificate'
+          cetAlt: 'JavaScript Certificate'
         },
         {
           title: 'The Vue Complete Guide',
-       
           link: 'https://drive.google.com/file/d/1-lBJNqkZDJ2L0COVV4eF51knHcSJu9b9/view',
           details: 'I successfully completed this 32-hour course on October, 2024.',
           image: require('../assets/Certi/Vue.png'),
           cetAlt: 'Vue Certificate'
         }
-      ]
+      ],
+      loading: [] // Track the loading state of each image
     };
+  },
+  created() {
+    // Initialize the loading array with true values for each certificate
+    this.loading = Array(this.certificates.length).fill(true); // Ensure loading array matches certificates length
   }
 };
+
 </script>
 
 <style scoped>
@@ -91,11 +104,9 @@ export default {
   margin-top: 0.5em;
 }
 
-
 .certificates a {
   color: white;
   text-decoration: none;
-
 }
 
 /* Responsive layout: On smaller screens, reduce the number of items per row */

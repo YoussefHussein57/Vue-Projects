@@ -3,6 +3,7 @@ import App from "./App.vue";
 import router from "./router";
 import BaseCard from "./components/BaseCard.vue";
 import BaseButton from "./components/BaseButton.vue";
+import BaseSpinner from "./components/BaseSpinner.vue";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
@@ -20,5 +21,6 @@ library.add(faFacebook, faLinkedin, faEnvelope, faPhone, faLocation);
 app.use(router);
 app.component("base-card", BaseCard);
 app.component("base-button", BaseButton);
+app.component("base-spinner", BaseSpinner);
 app.component("font-awesome-icon", FontAwesomeIcon);
 app.mount("#app");
