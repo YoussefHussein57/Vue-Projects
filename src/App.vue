@@ -1,26 +1,40 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div id="app">
+      <!-- Navigation Bar for routing between Sections -->
+
+<my-navbar></my-navbar>
+     <!-- This is where the route views will be renderd -->
+     <router-view v-slot="slotProps">
+        <transition name="fade" mode="out-in">
+          <component :is="slotProps.Component"></component>
+        </transition>
+      </router-view>
+    </div>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
 
+<script>
+import MyNavbar from './components/MyNavbar.vue';
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    MyNavbar,
   }
+  
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+  transform: scale(0.9);
+}
+.fade-enter-to, .fade-leave {
+  opacity: 1;
+  transform: scale(1);
+}
+
 </style>
