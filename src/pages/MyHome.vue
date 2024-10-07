@@ -1,33 +1,35 @@
 <template>
-  <base-card>
-    <div class="home" v-if="loaded">
-      <transition name="fade" mode="out-in">
-        <div v-if="showImage" class="photo">
-          <img :src="image" alt="My Photo" />
-        </div>
-      </transition>
-      <transition name="fade" mode="out-in">
-        <div v-if="showDetails" class="details">
-          <h1>{{ name }}</h1>
-          <transition name="fade" mode="out-in">
-            <p v-if="showInfo" key="info">{{ info }}</p>
-          </transition>
-          <transition name="fade" mode="out-in">
-            <div v-if="showAboutMe" key="about">
-              <h2>About Me</h2>
-              <p><strong>Education:</strong> {{ education }}</p>
-              <p><strong>Experience:</strong></p>
-              <ul>
-                <li v-for="job in experience" :key="job.id">
-                  <strong>{{ job.company }}:</strong> {{ job.position }} ({{ job.duration }})
-                </li>
-              </ul>
-            </div>
-          </transition>
-        </div>
-      </transition>
-    </div>
-  </base-card>
+  <transition name="fade" mode="out-in">
+    <base-card>
+      <div class="home" v-if="loaded">
+        <transition name="slide-x" mode="out-in">
+          <div v-if="showImage" class="photo">
+            <img :src="image" alt="My Photo" />
+          </div>
+        </transition>
+        <transition name="slide-x" mode="out-in">
+          <div v-if="showDetails" class="details">
+            <h1>{{ name }}</h1>
+            <transition name="slide-x" mode="out-in">
+              <p v-if="showInfo" key="info">{{ info }}</p>
+            </transition>
+            <transition name="slide-x" mode="out-in">
+              <div v-if="showAboutMe" key="about">
+                <h2>About Me</h2>
+                <p><strong>Education:</strong> {{ education }}</p>
+                <p><strong>Experience:</strong></p>
+                <ul>
+                  <li v-for="job in experience" :key="job.id">
+                    <strong>{{ job.company }}:</strong> {{ job.position }} ({{ job.duration }})
+                  </li>
+                </ul>
+              </div>
+            </transition>
+          </div>
+        </transition>
+      </div>
+    </base-card>
+  </transition>
 </template>
 
 <script>
@@ -114,8 +116,20 @@ img {
   border-radius: 10px;
 }
 
+.slide-x-enter-active, .slide-x-leave-active {
+  transition: transform 1s ease, opacity 1s ease;
+}
+.slide-x-enter {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+.slide-x-leave-to {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
 .fade-enter-active, .fade-leave-active {
-  transition: opacity 1s ease;
+  transition: opacity 0.5s ease;
 }
 .fade-enter {
   opacity: 0;

@@ -1,17 +1,16 @@
 <template>
-    <div id="app">
-      <!-- Navigation Bar for routing between Sections -->
-
-<my-navbar></my-navbar>
-     <!-- This is where the route views will be renderd -->
-     <router-view v-slot="slotProps">
-        <transition name="fade" mode="out-in">
-          <component :is="slotProps.Component"></component>
-        </transition>
-      </router-view>
-    </div>
+  <div id="app">
+    <!-- Navigation Bar for routing between Sections -->
+    <my-navbar></my-navbar>
+    
+    <!-- This is where the route views will be rendered -->
+    <router-view v-slot="{ Component }">
+      <transition name="fade" mode="out-in">
+        <component :is="Component" />
+      </transition>
+    </router-view>
+  </div>
 </template>
-
 
 <script>
 import MyNavbar from './components/MyNavbar.vue';

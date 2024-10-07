@@ -1,42 +1,41 @@
 <template>
-  <base-card>
-    <div class="contact">
-      <h1>Contact Me</h1>
+  <transition name="fade" mode="out-in">
+    <base-card>
+      <div class="contact">
+        <h1>Contact Me</h1>
 
-      <div class="icon-container">
-        <!-- Facebook Icon -->
-        <a :href="facebook" target="_blank" class="icon">  
-          <font-awesome-icon :icon="['fab', 'facebook']" class="icon-size" /> 
-        </a>
+        <div class="icon-container">
+          <!-- Facebook Icon -->
+          <a :href="facebook" target="_blank" class="icon">  
+            <font-awesome-icon :icon="['fab', 'facebook']" class="icon-size" /> 
+          </a>
 
-        <!-- Envelope Icon -->
-        <a :href="'mailto:' + email" target="_blank" class="icon"> 
-          <font-awesome-icon :icon="['far', 'envelope']" class="icon-size" /> 
-        </a>
+          <!-- Envelope Icon -->
+          <a :href="'mailto:' + email" target="_blank" class="icon"> 
+            <font-awesome-icon :icon="['far', 'envelope']" class="icon-size" /> 
+          </a>
 
-        <!-- LinkedIn Icon -->
-        <a :href="linkedin" target="_blank" class="icon">
-          <font-awesome-icon :icon="['fab', 'linkedin']" class="icon-size" />
-        </a>
+          <!-- LinkedIn Icon -->
+          <a :href="linkedin" target="_blank" class="icon">
+            <font-awesome-icon :icon="['fab', 'linkedin']" class="icon-size" />
+          </a>
+        </div>
+
+        <p>
+          <font-awesome-icon :icon="['fas', 'phone']" />
+          Phone: {{ phoneNumber }} 
+        </p>
+        <p>
+          <font-awesome-icon :icon="['fas', 'location']" />
+          Location: {{ location }} 
+        </p>  
       </div>
-
-      <p>
-        <font-awesome-icon :icon="['fas', 'phone']" />
-        Phone: {{ phoneNumber }} 
-      </p>
-      <p>
-        <font-awesome-icon :icon="['fas', 'location']" />
-        Location: {{ location }} 
-      </p>  
-    </div>
-  </base-card>
+    </base-card>
+  </transition>
 </template>
 
 <script>
-import BaseCard from '@/components/BaseCard.vue';
-
 export default {
-  components: { BaseCard },
   name: 'ContactMe',
   data() {
     return {
@@ -69,14 +68,24 @@ export default {
   transition: color 0.3s ease;
 }
 
-.icon{
+.icon {
   margin: 0 15px 0 0;
 }
-p{
+
+p {
   font-weight: bolder;
 }
+
 /* Change color on hover */
 .icon:hover .icon-size {
   color: #357ABD; /* Darker blue on hover */
+}
+
+/* Fade transition effect */
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
 }
 </style>

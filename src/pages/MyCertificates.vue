@@ -1,6 +1,5 @@
 <template>
   <div class="certificates">
-    <h1>My Certificates</h1>
     <ul>
       <base-card v-for="cert in certificates" :key="cert.title" class="certificate-item">
         <li>
@@ -16,10 +15,9 @@
 </template>
 
 <script>
-import BaseCard from '@/components/BaseCard.vue';
+
 
 export default {
-  components: { BaseCard },
   name: 'UserCertificates',
   data() {
     return {

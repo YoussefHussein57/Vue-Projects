@@ -16,11 +16,10 @@
   </template>
   
   <script>
-  import BaseCard from '@/components/BaseCard.vue';
+
 
   
   export default {
-    components: { BaseCard },
     name: 'MyProjects',
     data() {
       return {
