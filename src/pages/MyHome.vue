@@ -14,15 +14,21 @@
               <p v-if="showInfo" key="info">{{ info }}</p>
             </transition>
             <transition name="slide-x" mode="out-in">
-              <div v-if="showAboutMe" key="about">
+              <div v-if="showAboutMe" key="about" class="about">
                 <h2>About Me</h2>
                 <p><strong>Education:</strong> {{ education }}</p>
                 <p><strong>Experience:</strong></p>
                 <ul>
-                  <li v-for="job in experience" :key="job.id">
+                  <li
+                    v-for="(job, index) in experience"
+                    :key="job.id"
+                    :style="{ animationDelay: `${index * 0.6}s` }" 
+                    class="animated-list-item"
+                  >
                     <strong>{{ job.company }}:</strong> {{ job.position }} ({{ job.duration }})
                   </li>
                 </ul>
+                
               </div>
             </transition>
           </div>
@@ -53,7 +59,7 @@ export default {
       showAboutMe: false
     };
   },
-  mounted() {
+  created() {
     setTimeout(() => {
       this.loaded = true;
       this.showImage = true;
@@ -63,10 +69,10 @@ export default {
           this.showInfo = true;
           setTimeout(() => {
             this.showAboutMe = true;
-          }, 1000);
-        }, 1000);
-      }, 500);
-    }, 200);
+          }, 1000); // About Me section delayed by 1 second
+        }, 1000); // Info section delayed by 1 second
+      }, 500); // Details section delayed by 0.5 second
+    }, 200); // Initial delay before the first animation
   }
 };
 </script>
@@ -97,6 +103,7 @@ export default {
 .photo {
   margin-bottom: 1em;
   flex-shrink: 0;
+  animation: moveInLeft 2s ease-out;
 }
 
 @media (min-width: 768px) {
@@ -108,6 +115,11 @@ export default {
 
 .details {
   max-width: 600px;
+  animation: moveInLeft 2s ease-out;
+}
+
+.about {
+  animation: moveInLeft 2s ease-out;
 }
 
 img {
@@ -115,14 +127,21 @@ img {
   max-width: 300px;
   border-radius: 10px;
 }
+.animated-list-item {
+  opacity: 0; /* Initially invisible */
+  animation: fadeInUp 0.6s ease forwards; /* Animation for each item */
+}
+
 
 .slide-x-enter-active, .slide-x-leave-active {
   transition: transform 1s ease, opacity 1s ease;
 }
+
 .slide-x-enter {
   transform: translateX(-100%);
   opacity: 0;
 }
+
 .slide-x-leave-to {
   transform: translateX(100%);
   opacity: 0;
@@ -131,10 +150,39 @@ img {
 .fade-enter-active, .fade-leave-active {
   transition: opacity 0.5s ease;
 }
+
 .fade-enter {
   opacity: 0;
 }
+
 .fade-leave-to {
   opacity: 0;
 }
+
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  80% {
+    transform: translateX(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 </style>

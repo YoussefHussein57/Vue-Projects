@@ -1,6 +1,6 @@
 <template>
   <button
-    :class="['base-button', buttonSize, { disabled }]"
+    :class="['base-button' , 'btn-animated', buttonSize, { disabled }]"
     :type="type"
     @click="handleClick"
     :disabled="disabled"
@@ -42,7 +42,7 @@ export default {
 .base-button {
   display: inline-block;
   padding: 0.75em 1.5em;
-  background-color: #333;
+  background-color: #1ABC9C; /* Teal */
   color: white;
   border: none;
   border-radius: 25px;
@@ -52,31 +52,22 @@ export default {
   text-align: center;
   text-decoration: none;
   transition: background-color 0.3s ease, transform 0.2s ease;
-  margin-top: 0.5em ;
+  margin-top: 0.5em;
+  text-transform: uppercase;
 }
 
 .base-button:hover {
-  background-color: #141414;
-  transform: translateY(-2px); /* Slight lift on hover */
+  background-color: #16A085; /* Slightly darker teal */
+  transform: translateY(-3px); /* Slight lift on hover */
+  box-shadow: 0 10px 20px rgba(7, 133, 175, 0.2);
 }
 
 .base-button:active {
-  transform: translateY(0);
+  transform: translateY(-1px);
 }
 
 .base-button.disabled {
-  background-color: #aaa; /* Gray out when disabled */
+  background-color: #aaa; /* Disabled state */
   cursor: not-allowed;
-}
-
-/* Button size variations */
-.base-button.small {
-  padding: 0.5em 1em;
-  font-size: 0.8rem;
-}
-
-.base-button.large {
-  padding: 1em 2em;
-  font-size: 1.2rem;
 }
 </style>

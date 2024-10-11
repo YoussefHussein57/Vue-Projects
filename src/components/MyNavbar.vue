@@ -22,7 +22,7 @@ export default {
 /* Ensure the header takes full width and height */
 header {
   width: 100%;
-  background-color: #333;
+  background-color: #2C3E50;
   display: flex;
   justify-content: center;
   align-items: center;

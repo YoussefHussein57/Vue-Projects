@@ -64,7 +64,7 @@ export default {
 /* Enlarge the font-awesome icons */
 .icon-size {
   font-size: 2.5rem; /* Adjust the icon size here */
-  color: #333;
+  color: #2C3E50;
   transition: color 0.3s ease;
 }
 
