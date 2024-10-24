@@ -52,7 +52,13 @@ export default {
           description: 'A game built with Vue.js to fight a monster in real-time.',
           link: 'https://github.com/YoussefHussein57/Vue-Projects/tree/monster-slayer-game',
           image: require('../assets/Monster Slayer/img1.jpg') // Screenshot path
-        }
+        },
+        {
+          title: 'Natours Project',
+          description: 'The Natours project is a fully responsive travel website built using advanced CSS and SASS techniques, showcasing features like animations, flexbox, and grid layouts. It highlights modern web design and best practices for clean, maintainable front-end code.',
+          link: 'https://www.linkedin.com/posts/youssef-hussein-106108299_css-sass-webdevelopment-activity-7255154942238150656-_JTt?utm_source=share&utm_medium=member_desktop',
+          image: require('../assets/natrous.png') // Screenshot path
+        },
       ],
       loading: [] // Track the loading state of each project image
     };
