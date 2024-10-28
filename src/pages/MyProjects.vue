@@ -44,7 +44,7 @@ export default {
         {
           title: 'Find a Coach',
           description: 'Coach finding app built with Vue.js and Firebase.',
-          link: 'https://github.com/YoussefHussein57/Vue-Projects/tree/find-coach',
+          link: 'https://findcoach.netlify.app',
           image: require('../assets/Find A coach/Img1.jpg') // Screenshot path
         },
         {
