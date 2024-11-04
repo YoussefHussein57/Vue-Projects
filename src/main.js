@@ -10,7 +10,11 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import VueParticles from "vue-particles";
 
 // Import specific icons from the free-regular-svg-icons and free-brands-svg-icons
-import { faFacebook, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import {
+  faFacebook,
+  faLinkedin,
+  faGithub,
+} from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 import { faPhone, faLocation } from "@fortawesome/free-solid-svg-icons";
 
@@ -18,7 +22,7 @@ import { faPhone, faLocation } from "@fortawesome/free-solid-svg-icons";
 
 const app = createApp(App);
 
-library.add(faFacebook, faLinkedin, faEnvelope, faPhone, faLocation);
+library.add(faFacebook, faLinkedin, faEnvelope, faPhone, faLocation, faGithub);
 
 app.use(router);
 app.use(VueParticles);

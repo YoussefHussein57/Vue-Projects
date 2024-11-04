@@ -56,9 +56,16 @@ export default {
         {
           title: 'Natours Project',
           description: 'The Natours project is a fully responsive travel website built using advanced CSS and SASS techniques, showcasing features like animations, flexbox, and grid layouts. It highlights modern web design and best practices for clean, maintainable front-end code.',
-          link: 'https://www.linkedin.com/posts/youssef-hussein-106108299_css-sass-webdevelopment-activity-7255154942238150656-_JTt?utm_source=share&utm_medium=member_desktop',
+          link: 'https://github.com/YoussefHussein57/Natours-projects.git',
           image: require('../assets/natrous.png') // Screenshot path
         },
+        {
+          title: 'Trillo Project',
+          description: 'The Trillo project is a modern, fully responsive hotel booking website designed as part of the advanced CSS and SASS course on Udemy. This project emphasizes the application of flexbox techniques, showcasing efficient layout designs and best practices in front-end development for seamless user experiences.',
+          link: 'https://github.com/YoussefHussein57/Trillo',
+          image: require('../assets/trillo.png') // Screenshot or thumbnail for Trillo
+}
+
       ],
       loading: [] // Track the loading state of each project image
     };

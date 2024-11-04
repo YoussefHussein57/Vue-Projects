@@ -19,6 +19,11 @@
           <a :href="linkedin" target="_blank" class="icon">
             <font-awesome-icon :icon="['fab', 'linkedin']" class="icon-size" />
           </a>
+
+          <!-- GitHub Icon -->
+          <a :href="github" target="_blank" class="icon">
+            <font-awesome-icon :icon="['fab', 'github']"   class="icon-size"/>
+          </a>
         </div>
 
         <p>
@@ -44,10 +49,12 @@ export default {
       email: 'yhi1612000@gmail.com',
       facebook: 'https://www.facebook.com/profile.php?id=100009016058660',
       linkedin: 'https://www.linkedin.com/in/youssef-hussein-106108299/',
+      github: 'https://github.com/YoussefHussein57'
     };
   }
 };
 </script>
+
 
 <style scoped>
 .contact {
