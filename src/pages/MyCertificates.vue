@@ -52,7 +52,15 @@ export default {
           details: 'I successfully completed this 32-hour course on October, 2024.',
           image: require('../assets/Certi/Vue.png'),
           cetAlt: 'Vue Certificate'
-        }
+        },
+        {
+    title: 'Advanced CSS and Sass: Flexbox, Grid, Animations and More!',
+    link: 'https://drive.google.com/file/d/1buhVSHzYssygxj1CAc-7XxpOFRmL198h/view?usp=sharing',
+    details: 'I successfully completed this 28-hour course on November 8, 2024.',
+    image: require('../assets/Certi/Advanced-CSS-and-SASS.jpg'),
+    cetAlt: 'Advanced CSS and Sass Certificate'
+}
+
       ],
       loading: [] // Track the loading state of each image
     };
